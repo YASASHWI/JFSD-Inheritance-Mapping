@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+		   <class name="com.klu.JFSDS25_IMTC.Payment" >
+		      <id name="pid" />
+		      <discriminator column="payment_type" type="string"></discriminator> 
+		      <property name="pamount"/>
+	
+		      <subclass name="com.klu.JFSDS25_IMTC.Card" discriminator-value="c">
+	
+			<property name="cardType"/>
+			</subclass>
+	
+		      <subclass name="com.klu.JFSDS25_IMTC.Cheque" discriminator-value="cq">
+			<property name="chequeType"/>
+	 	      </subclass>
+	
+		      
+		   </class>
+</hibernate-mapping>

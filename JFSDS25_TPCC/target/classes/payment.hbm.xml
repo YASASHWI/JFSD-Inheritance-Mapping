@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   
+   
+   <hibernate-mapping>
+  
+   <class name="com.klu.JFSDS25_TPCC.Payment" table="payment">
+      <id name="pid"></id>
+      <property name="pamount"/>
+  
+
+  
+   <union-subclass name="com.klu.JFSDS25_TPCC.Card" table="card" >
+      <property name="cardType"/>
+   </union-subclass>
+
+   
+   <union-subclass name="com.klu.JFSDS25_TPCC.Cheque" table="cheque" >
+      <property name="chequeType"/>
+   </union-subclass>
+    </class>
+</hibernate-mapping>
